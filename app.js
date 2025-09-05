@@ -16,7 +16,7 @@ function exibirMensagemInicial(){
 exibirMensagemInicial()
 
 function verificarChute() {
-    let chute = document.querySelector('input').value;
+    let chute = parseInt(document.querySelector('input').value);
     console.log(chute == numeroSecreto);
     if (chute == numeroSecreto) {
         exibirTextoNaTela('h1','Acertou!');
@@ -59,14 +59,15 @@ function gerarNumeroAleatorio() {
 }
 
 function limparCampo() {
-    chute = document.querySelector('input');
+    let chute = document.querySelector('input');
     chute.value = '';
 }
 
 function reiniciarJogo () {
-    numeroSecreto = gerarNumeroAleatorio;
+    numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
     tentativa = 1;
     exibirMensagemInicial()
     document.getElementById('reiniciar').setAttribute('disabled',true);
 }
+
